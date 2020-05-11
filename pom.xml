@@ -16,7 +16,8 @@
     </properties>
 
     <dependencies>
-        <dependency>
+
+    <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
@@ -36,6 +37,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -52,4 +54,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

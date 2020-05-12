@@ -4,6 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import org.junit.Assert;
 
 public class StepDefinitions {
@@ -12,9 +13,9 @@ public class StepDefinitions {
 
   private String answer;
 
-  @Given("Today is Sunday")
-  public void today_is_Sunday() {
-    this.dayOfWeek = DayOfWeek.SUNDAY;
+  @Given("Today is {string}")
+  public void todayIs(String day) {
+    this.dayOfWeek = DayOfWeek.valueOf(day.toUpperCase());
   }
 
   @When("I ask whether it's Friday yet")
@@ -25,6 +26,11 @@ public class StepDefinitions {
   @Then("I should be told {string}")
   public void i_should_be_told(String dayOfWeek) {
     Assert.assertEquals(answer, dayOfWeek);
+  }
+
+  @Given("I have to see the calendar")
+  public void iHaveOverdueTasks() {
+    System.out.println("Today is " + LocalDate.now().getDayOfWeek().name());
   }
 
 }
